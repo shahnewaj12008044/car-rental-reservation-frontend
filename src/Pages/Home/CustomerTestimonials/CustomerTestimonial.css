@@ -1,0 +1,24 @@
+
+
+.slick-dots li button:before {
+    color: #ffff; /* Change this to the desired inactive dot color */
+    opacity: 1; /* Ensures the color is applied */
+    font-size: 8px; /* Adjust size if needed */
+  }
+  
+  /* Active dot color */
+  .slick-dots li.slick-active button:before {
+    color: #fea633; /* Change this to the desired active dot color */
+    opacity: 1; /* Ensures the color is applied */
+    font-size: 12px; /* Adjust size if needed */
+  }
+
+ 
+  
+  .carousel-background {
+    background-image: url('./../../../assets/tinified/hua-ling-RXDTb_XyQho-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
