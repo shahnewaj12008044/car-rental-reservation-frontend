@@ -79,6 +79,32 @@
   }
 }
 
+.image-fluid {
+  position: relative;
+  overflow: hidden;
+}
+
+.magnifier {
+  transition: transform 5s ease; /* Increased duration for smoother zoom */
+}
+
+.magnifier:hover {
+  transform: scale(1.5); /* Adjusted scale for a more subtle zoom */
+}
+
+@layer utilities {
+  .custom-transition {
+    @apply hover:transition hover:transform hover:scale-125 hover:-translate-y-1 hover:duration-150 hover:ease-in-out ;
+  }
+}
+
+@layer utilities {
+  .bg-gradient {
+    @apply bg-gradient-to-r from-orange-600 to-yellow-400;
+  }
+}
+
+
 @layer base {
   * {
     @apply border-border;
