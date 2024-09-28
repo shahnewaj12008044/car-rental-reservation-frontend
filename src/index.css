@@ -27,7 +27,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -53,18 +53,18 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 
-.bg-navbar{
-  @apply bg-[#F8F9FA]
+.bg-navbar {
+  @apply bg-[#F8F9FA];
 }
-.text-color{
-  @apply text-[#020C29]
+.text-color {
+  @apply text-[#020C29];
 }
-.text-secondary{
-  @apply text-[#fe8800] 
+.text-secondary {
+  @apply text-[#fe8800];
 }
 
 @layer utilities {
@@ -73,61 +73,11 @@
   }
 }
 
-
 @layer utilities {
   .custom-transition {
-    @apply hover:transition hover:transform hover:scale-125 hover:-translate-y-1 hover:duration-150 hover:ease-in-out ;
+    @apply hover:transition hover:transform hover:scale-125 hover:-translate-y-1 hover:duration-150 hover:ease-in-out;
   }
 }
-
-@layer utilities {
-  .masonry {
-    column-gap: 1.5em;
-    column-count: 1;
-  }
-  @screen sm {
-    .masonry {
-      column-count: 2;
-    }
-  }
-  @screen md {
-    .masonry {
-      column-count: 3;
-    }
-  }
-  .break-inside {
-    break-inside: avoid;
-  }
-}
-
-.scroll-container {
-  display: flex;
-  overflow: hidden;
-  white-space: nowrap;
-  height: 400px; /* Set your desired fixed height */
-}
-
-.scroll-content {
-  display: flex;
-  animation: scroll 5s linear infinite;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.masonry img {
-  height: 100%;
-  object-fit: cover;
-}
-
-
-
 
 @layer base {
   * {
