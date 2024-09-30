@@ -3,8 +3,12 @@ import GridColumn from "./GridColumns";
 
 
 
+
 const FeateuredCars = () => {
+  
   const { data: allCars } = useGetAllCarsQuery(undefined);
+  // console.log(allCars)
+  // console.log(location)
 
 
   const columns = [
@@ -28,7 +32,7 @@ const FeateuredCars = () => {
 };
 
 
-//^nice masnory grid layout
+
 
 
 export default FeateuredCars;

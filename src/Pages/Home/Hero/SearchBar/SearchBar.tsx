@@ -22,16 +22,25 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
-import { useState } from "react";
+import { Dispatch, useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon } from "lucide-react";
 
-const SearchBar = () => {
+
+interface SearchBarProps {
+  setLocation: Dispatch<React.SetStateAction<string>>;
+}
+
+const SearchBar : React.FC<SearchBarProps> = ({setLocation}) => {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const { handleSubmit, control } = useForm();
 
+
   const onSubmit: SubmitHandler<FieldValues> = (formData) => {
-    console.log(formData);
+
+    setLocation(formData.location)
+    
+
   };
 
   return (
@@ -58,11 +67,14 @@ const SearchBar = () => {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>
-                        <SelectItem value={"dhaka"}>Dhaka</SelectItem>
-                        <SelectItem value={"chittagong"}>Chittagong</SelectItem>
-                        <SelectItem value={"feni"}>Feni</SelectItem>
-                        <SelectItem value={"noakhali"}>Noakhali</SelectItem>
-                        <SelectItem value={"coxbazar"}>Cox Bazar</SelectItem>
+                        <SelectItem value={"Dhaka"}>Dhaka</SelectItem>
+                        <SelectItem value={"Chattogram"}>Chattogram</SelectItem>
+                        <SelectItem value={"Rangpur"}>Rangpur</SelectItem>
+                        <SelectItem value={"Bandarban"}>Bandarban</SelectItem>
+                        <SelectItem value={"Borguna"}>Borguna</SelectItem>
+                        <SelectItem value={"Sylhet"}>Sylhet</SelectItem>
+                        <SelectItem value={"Khulna"}>Khulna</SelectItem>
+                        <SelectItem value={"RajShahi"}>RajShahi</SelectItem>
                       </SelectGroup>
                     </SelectContent>
                   </Select>

@@ -25,7 +25,7 @@ const carSlice = createSlice({
     name:'car',
     initialState,
     reducers:{
-
+      
     }
     
 })

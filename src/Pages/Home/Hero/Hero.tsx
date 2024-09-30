@@ -21,6 +21,10 @@ import {
 
 } from "@/components/ui/carousel"
 import SearchBar from './SearchBar/SearchBar'
+import { useState } from 'react'
+import { useGetAllCarsQuery } from '@/redux/features/Car/carApi'
+import CarCard from '@/components/shared/CarCard'
+import { TCar } from '@/redux/features/Car/carSlice'
 
  const Hero =() => {
     const banner = [
@@ -37,7 +41,11 @@ import SearchBar from './SearchBar/SearchBar'
       ]
       
       
-  
+  const [location, setLocation] = useState('')
+  // console.log(location)
+
+  const {data:carsData} = useGetAllCarsQuery([{name:'location',value:location}])
+  console.log(carsData?.data)
       
   return (
   <div className='flex flex-col gap-8'>
@@ -72,7 +80,7 @@ import SearchBar from './SearchBar/SearchBar'
                       ))}
                     </div>
                     <div className="hidden md:flex absolute inset-0 items-center justify-center">
-                    <SearchBar></SearchBar>
+                    <SearchBar setLocation = {setLocation}></SearchBar>
                     </div>
                 </CardContent>
               </Card>
@@ -82,8 +90,14 @@ import SearchBar from './SearchBar/SearchBar'
       </CarouselContent>
     </Carousel>
     <div className="md:hidden  flex justify-center">
-        <SearchBar />
+        <SearchBar setLocation = {setLocation} />
       </div>
+
+    <div className='grid grid-cols-1 md:grid-cols-3'>
+      {carsData?.data?.map((car : TCar)=>(
+       <CarCard car = {car}></CarCard>
+      ))}
+    </div>
   </div>
   )
 }
