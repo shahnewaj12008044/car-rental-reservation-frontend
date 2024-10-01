@@ -10,9 +10,6 @@ import car9 from '../../../assets/pictures/carbanner/car-9.jpg'
 import car10 from '../../../assets/pictures/carbanner/car-10.jpg'
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade"
-
-
-
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
@@ -25,6 +22,10 @@ import { useState } from 'react'
 import { useGetAllCarsQuery } from '@/redux/features/Car/carApi'
 import CarCard from '@/components/shared/CarCard'
 import { TCar } from '@/redux/features/Car/carSlice'
+import { Link } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import { FaArrowRight } from "react-icons/fa";
+
 
  const Hero =() => {
     const banner = [
@@ -48,7 +49,7 @@ import { TCar } from '@/redux/features/Car/carSlice'
   console.log(carsData?.data)
       
   return (
-  <div className='flex flex-col gap-8'>
+  <div className='flex flex-col items-center gap-8'>
       <Carousel
     plugins={[
         Autoplay({
@@ -98,6 +99,7 @@ import { TCar } from '@/redux/features/Car/carSlice'
        <CarCard car = {car}></CarCard>
       ))}
     </div>
+    <Link to='/booking' className='flex items-center'><Button className='btn-primary w-96'>Book Now <FaArrowRight  className='ml-2 animate-ping'/></Button></Link>
   </div>
   )
 }
