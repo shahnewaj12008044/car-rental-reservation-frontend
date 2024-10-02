@@ -33,8 +33,8 @@ const ContactUs = () => {
   return (
     <div className="my-4">
      
-        <h1 className="text-center font-bold text-4xl pt-16 flex justify-center items-center mx-auto text-[#020C29] underline my-4">
-          Contact <span className="text-orange-600">Us</span> 
+        <h1 className="text-center font-bold text-4xl pt-16 flex justify-center items-center mx-auto tracking-wide text-[#020C29] underline my-4">
+          Contact <span className="text-orange-600 ">Us</span> 
         </h1>
     
       <section className="py-2">

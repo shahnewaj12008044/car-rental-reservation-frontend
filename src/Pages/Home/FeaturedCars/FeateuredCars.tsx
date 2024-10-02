@@ -1,14 +1,18 @@
 import { useGetAllCarsQuery } from "@/redux/features/Car/carApi";
 import GridColumn from "./GridColumns";
+import Loader from "@/components/shared/Loader";
 
 
 
 
 const FeateuredCars = () => {
   
-  const { data: allCars } = useGetAllCarsQuery(undefined);
+  const { data: allCars ,isLoading } = useGetAllCarsQuery(undefined);
   // console.log(allCars)
   // console.log(location)
+  if(isLoading){
+   return <Loader></Loader>
+  }
 
 
   const columns = [
