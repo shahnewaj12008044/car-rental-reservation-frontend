@@ -4,22 +4,31 @@ import { verifyToken } from "@/utils/VerifyToken";
 import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({children,role}: {children:ReactNode, role:string | undefined}) => {
-    const dispatch = useAppDispatch();
-    const token = useAppSelector(useCurrentToken)
-    let user;
-    if(token){
-        user = verifyToken(token) as TUser;
-    }
-    if(role !== undefined && role!== user?.role){
-        dispatch(logout())
-        return <Navigate to="/login" replace={true} />;
-    }
-    if (!token) {
-        return <Navigate to="/login" replace={true} />;
-      }
+interface ProtectedRouteProps {
+  children: ReactNode;
+  roles: string[]; // Now accepts an array of roles
+}
 
-  return children
+const ProtectedRoute = ({ children, roles }: ProtectedRouteProps) => {
+  const dispatch = useAppDispatch();
+  const token = useAppSelector(useCurrentToken);
+  let user: TUser | undefined;
+
+  if (token) {
+    user = verifyToken(token) as TUser;
+  }
+
+  // Check if user role is allowed
+  if (roles.length && (!user || !roles.includes(user.role))) {
+    dispatch(logout());
+    return <Navigate to="/login" replace={true} />;
+  }
+
+  if (!token) {
+    return <Navigate to="/login" replace={true} />;
+  }
+
+  return <>{children}</>;
 };
 
 export default ProtectedRoute;

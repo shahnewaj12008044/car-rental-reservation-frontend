@@ -5,10 +5,19 @@ import { Link, NavLink } from "react-router-dom";
 
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Button } from "../ui/button";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { logout, selectCurrentUser } from "@/redux/features/Auth/AuthSlice";
+import { FaUserAlt } from "react-icons/fa";
 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const user = useAppSelector(selectCurrentUser)
+  const dispatch = useAppDispatch()
+  // console.log(user)
+  const handleLogOut = () =>{
+    dispatch(logout())
+  }
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -48,8 +57,10 @@ const Navbar = () => {
   </ul>
 
     <div className="hidden md:flex">
-     <Link to = "/login"> <Button className="btn-primary">Login</Button></Link>
+    {user? (<FaUserAlt className="size-12 rounded-full p-2 text-[#020C29] ring-2 ring-orange-500" />):(<Link to = "/login"> <Button className="btn-primary">Login</Button></Link>)}
     </div>
+
+
  {/* for mobile content */}
  <div
     onClick={() => setIsOpen(!isOpen)}
@@ -87,7 +98,7 @@ const Navbar = () => {
       </li>
     ))}
     <li className="p-4">
-      <NavLink to='/login'><Button className="btn-primary">Login</Button></NavLink>
+    {user?(<Button onClick={handleLogOut} className="btn-primary">Logout</Button>):(<NavLink to='/login'><Button className="btn-primary">Login</Button></NavLink>) }
     </li>
   </ul>
 </div>

@@ -8,9 +8,10 @@ import Cars from "@/Pages/Cars/Cars";
 import AboutUs from "@/Pages/AboutUs/AboutUs";
 import Login from "@/Pages/Auth/Login/Login";
 import ProtectedRoute from "@/components/shared/ProtectedRoute";
-import UserDashboard from "@/Pages/Dashboard/user/UserDashboard";
 import AdminDashboard from "@/Pages/Dashboard/admin/AdminDashboard";
 import Register from "@/Pages/Register/Register";
+import CarDetails from "@/Pages/Cars/CarDetails";
+
 
 const router = createBrowserRouter([
   {
@@ -31,13 +32,18 @@ const router = createBrowserRouter([
         element: <Cars></Cars>,
       },
       {
+        path: "/car-details/:id",
+        element: <CarDetails />,
+      },
+      {
         path: "/booking",
         element: (
-          <ProtectedRoute role="">
+          <ProtectedRoute roles={["admin", "user"]}>
             <Booking />
           </ProtectedRoute>
         ),
       },
+      
       {
         path: "/about",
         element: <AboutUs />,
@@ -54,11 +60,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/user",
-    element: <ProtectedRoute role="user"><UserDashboard/></ProtectedRoute>,
+    element: <ProtectedRoute roles={["user"]}><App/></ProtectedRoute>,
   },
   {
     path:'/admin',
-    element:<ProtectedRoute role="admin"><AdminDashboard></AdminDashboard></ProtectedRoute>
+    element:<ProtectedRoute roles={["admin"]}><AdminDashboard></AdminDashboard></ProtectedRoute>
   }
 ]);
 
