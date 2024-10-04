@@ -10,6 +10,7 @@ import Login from "@/Pages/Auth/Login/Login";
 import ProtectedRoute from "@/components/shared/ProtectedRoute";
 import UserDashboard from "@/Pages/Dashboard/user/UserDashboard";
 import AdminDashboard from "@/Pages/Dashboard/admin/AdminDashboard";
+import Register from "@/Pages/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },

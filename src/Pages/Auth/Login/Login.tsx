@@ -11,7 +11,7 @@ import { useState } from "react";
 
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -92,7 +92,7 @@ const Login = () => {
       <div className="text-sm text-center mt-4">
         <h2>
           Don't have an account yet?{" "}
-          <span className="text-orange-600 ">sign-up</span>
+        <Link to = '/register'>  <span className="text-orange-600 ">sign-up</span></Link>
         </h2>
       
       </div>
