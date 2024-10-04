@@ -42,6 +42,7 @@ const CarFilter: React.FC<SearchProps> = ({ setQueryParams, queryParams }) => {
   },[])
 
 
+  
   // Use the defined type for the field parameter
   const handleInputChange = (field: QueryField, value: string) => {
     setQueryParams({ ...queryParams, [field]: value });

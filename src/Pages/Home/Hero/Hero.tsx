@@ -1,6 +1,6 @@
 import car1 from '../../../assets/pictures/carbanner/car1.jpg'
 import car2 from '../../../assets/pictures/carbanner/car2.jpg'
-import car3 from '../../../assets/pictures/carbanner/car3.jpg'
+
 import car4 from '../../../assets/pictures/carbanner/car4.jpg'
 import car5 from '../../../assets/pictures/carbanner/car5.jpg'
 import car6 from '../../../assets/pictures/carbanner/car6.jpg'
@@ -31,14 +31,13 @@ import { FaArrowRight } from "react-icons/fa";
     const banner = [
         { index: 0, image: car1 },
         { index: 1, image: car2 },
-        { index: 2, image: car3 },
-        { index: 3, image: car4 },
-        { index: 4, image: car5 },
-        { index: 5, image: car6 },
-        { index: 6, image: car7 },
-        { index: 7, image: car8 },
-        { index: 8, image: car9 },
-        { index: 9, image: car10 }
+        { index: 2, image: car4 },
+        { index: 3, image: car5 },
+        { index: 4, image: car6 },
+        { index: 5, image: car7 },
+        { index: 6, image: car8 },
+        { index: 7, image: car9 },
+        { index: 8, image: car10 }
       ]
       
       

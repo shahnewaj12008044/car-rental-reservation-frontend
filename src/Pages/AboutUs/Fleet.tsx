@@ -5,7 +5,8 @@ import { useGetAllCarsQuery } from "@/redux/features/Car/carApi";
 import { TCar } from "@/redux/features/Car/carSlice";
 
 const Fleet = () => {
-    const { data :carsdata ,isLoading} = useGetAllCarsQuery(undefined)
+    const { data :carsdata ,isLoading} = useGetAllCarsQuery([{name:'limit',value:5}])
+    // console.log(carsdata)
 
     if(isLoading){return <Loader/>}
 

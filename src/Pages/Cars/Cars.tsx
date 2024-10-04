@@ -5,7 +5,7 @@ import CarFilter from "./CarFilter/CarFilter";
 import { TCar } from "@/redux/features/Car/carSlice";
 import { useGetAllCarsQuery } from "@/redux/features/Car/carApi";
 import Lottie from "lottie-react";
-import NoData from './../../assets/NoDataFound.json'
+import NoData from "./../../assets/NoDataFound.json";
 
 interface QueryParams {
   search?: string;
@@ -17,17 +17,27 @@ interface QueryParams {
 
 const Car = () => {
   const [queryParams, setQueryParams] = useState<QueryParams>({});
+  const [isLooping, setIsLooping] = useState(true);
+
   // console.log(queryParams)
   const transformedArray = Object.keys(queryParams).map((key) => ({
     name: key,
     value: queryParams[key as keyof QueryParams],
   }));
 
-  const { data, refetch, isLoading } = useGetAllCarsQuery(transformedArray);
+  const { data, isLoading } = useGetAllCarsQuery([...transformedArray,{name:'limit',value:8}]);
+  console.log(data)
 
   useEffect(() => {
-    refetch();
-  }, [queryParams, refetch]);
+    let isMounted = true;
+    if (isMounted) {
+      setIsLooping(true);
+    }
+    return () => {
+      isMounted = false;
+      setIsLooping(false);
+    };
+  }, []);
 
   if (isLoading) return <Loader />;
 
@@ -52,9 +62,9 @@ const Car = () => {
           {/* Cars Listing Section */}
           <div className="lg:w-3/4 grid grid-cols-1  md:grid-cols-2 gap-8">
             {data?.data?.length === 0 ? (
-             <div className="flex justify-center items-center">
-             <Lottie  animationData={NoData} loop={true} />
-             </div>
+              <div className="flex justify-center items-center">
+                <Lottie animationData={NoData} loop={isLooping} />
+              </div>
             ) : (
               data?.data?.map((car: TCar) => (
                 <CarCard key={car._id} car={car} />

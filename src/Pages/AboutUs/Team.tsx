@@ -40,10 +40,10 @@ const Team = () => {
         Our <span className="text-orange-500">Team</span>
       </h1>
       <div className="flex flex-col md:flex-row justify-between ">
-      {teamMembers?.map((team: TTeamMembers) => (
+      {teamMembers?.map((team: TTeamMembers, index) => (
         
         
-          <div className="flex flex-col gap-2 h-64 relative items-center bg-white p-5 rounded-md shadow-xl shadow-blue-200 custom-transition">
+          <div key= { index} className="flex flex-col gap-2 h-64 relative items-center bg-white p-5 rounded-md shadow-xl shadow-blue-200 custom-transition">
             <img
               className="rounded-full hover:ring-2 ring-orange-600"
               src={team?.image}

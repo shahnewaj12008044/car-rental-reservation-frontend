@@ -48,7 +48,7 @@ const Navbar = () => {
   </ul>
 
     <div className="hidden md:flex">
-      <Button className="btn-primary">Login</Button>
+     <Link to = "/login"> <Button className="btn-primary">Login</Button></Link>
     </div>
  {/* for mobile content */}
  <div
