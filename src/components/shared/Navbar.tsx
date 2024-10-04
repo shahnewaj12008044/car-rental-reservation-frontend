@@ -8,10 +8,14 @@ import { Button } from "../ui/button";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { logout, selectCurrentUser } from "@/redux/features/Auth/AuthSlice";
 import { FaUserAlt } from "react-icons/fa";
+import PopNavBar from "./PopNavBar";
+
+
 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isPopNavbar, setIsPopNavbar] = useState(false)
   const user = useAppSelector(selectCurrentUser)
   const dispatch = useAppDispatch()
   // console.log(user)
@@ -28,7 +32,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-navbar w-full flex  md:flex-row justify-between items-center py-4 mx-auto px-4">
+    <div className="bg-navbar relative w-full flex  md:flex-row justify-between items-center py-4 mx-auto px-4">
   <Link to="/" className="flex items-center gap-2 mb-4 md:mb-0">
     <img
       className="w-12 h-12 lg:w-16 lg:h-16 border-2 border-orange-600 rounded-full"
@@ -57,8 +61,14 @@ const Navbar = () => {
   </ul>
 
     <div className="hidden md:flex">
-    {user? (<FaUserAlt className="size-12 rounded-full p-2 text-[#020C29] ring-2 ring-orange-500" />):(<Link to = "/login"> <Button className="btn-primary">Login</Button></Link>)}
+    {user?
+     (<div>
+      <FaUserAlt onClick={()=>setIsPopNavbar(!isPopNavbar)} className="size-12 rounded-full p-2 text-[#020C29] ring-2 ring-orange-500" />
+      <PopNavBar isPopNavbar = {isPopNavbar}></PopNavBar>
+     </div>):
+    (<Link to = "/login"> <Button className="btn-primary">Login</Button></Link>)}
     </div>
+
 
 
  {/* for mobile content */}

@@ -34,7 +34,7 @@ const CarDetails = () => {
   if (isLoading) return <Loader />;
   if (isError || !data) return  <div className="flex flex-col gap-8 justify-center items-center">
   <Lottie animationData={NoData} loop={false} />
-  <Button onClick={()=>navigate(-1)}>Go Back</Button>
+  <Button className="btn-primary" onClick={()=>navigate(-1)}>Go Back</Button>
 </div>;
   const { name, description, pricePerHour, image, features, status, reviews } =
     data.data as ICar;
