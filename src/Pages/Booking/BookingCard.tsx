@@ -33,7 +33,7 @@ const BookingCard = ({ car }: { car: TCar }) => {
             <span className=" relative z-10">See Details</span>
           </Button>
         </Link>
-        <Link to={``}>
+        <Link to={`/booking-form/${car?._id}`}>
           <Button disabled={car?.status==="unavailable"} className={`btn-primary w-full   ${
               car.status === "unavailable" ? "opacity-50 cursor-not-allowed" : ""
             }`}>

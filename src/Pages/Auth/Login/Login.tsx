@@ -38,7 +38,7 @@ const Login = () => {
         //setting the user to the state
         dispatch(setUser({user:user,token:res?.token}))
         toast.success('Logged in successfully! 😍');
-      navigate(`/${user?.role}`);
+      navigate(`/${user?.role}/dashboard`);
     }catch(err : any){
       
         toast.error(err?.data?.message || 'Failed to login. Please try again.')

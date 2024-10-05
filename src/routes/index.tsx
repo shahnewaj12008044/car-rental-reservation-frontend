@@ -9,9 +9,12 @@ import AboutUs from "@/Pages/AboutUs/AboutUs";
 import Login from "@/Pages/Auth/Login/Login";
 import ProtectedRoute from "@/components/shared/ProtectedRoute";
 import AdminDashboard from "@/Pages/Dashboard/admin/AdminDashboard";
-import Register from "@/Pages/Register/Register";
+import Register from "@/Pages/Auth/Register/Register";
 import CarDetails from "@/Pages/Cars/CarDetails";
-
+import UserDashboard from "@/Pages/Dashboard/user/UserDashboard";
+import BookingForm from "@/Pages/Booking/BookingForm";
+import ConfirmBooking from "@/Pages/Booking/ConfirmBooking";
+import Success from "@/Pages/success/Success";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +46,22 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      
+      {
+        path: "/booking-form/:id",
+        element: (
+          <ProtectedRoute roles={[ "user"]}>
+            <BookingForm />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/confirm-booking",
+        element: <ProtectedRoute roles={['user']}><ConfirmBooking /></ProtectedRoute>,
+      },
+      {
+        path: "/success",
+        element: <ProtectedRoute roles={['user','admin']}><Success  /></ProtectedRoute>,
+      },
       {
         path: "/about",
         element: <AboutUs />,
@@ -60,12 +78,26 @@ const router = createBrowserRouter([
   },
   {
     path: "/user",
-    element: <ProtectedRoute roles={["user"]}><App/></ProtectedRoute>,
+    element: (
+      <ProtectedRoute roles={["user"]}>
+        <App />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        path: "dashboard",
+        element: <UserDashboard />,
+      },
+    ],
   },
   {
-    path:'/admin',
-    element:<ProtectedRoute roles={["admin"]}><AdminDashboard></AdminDashboard></ProtectedRoute>
-  }
+    path: "/admin",
+    element: (
+      <ProtectedRoute roles={["admin"]}>
+        <AdminDashboard></AdminDashboard>
+      </ProtectedRoute>
+    ),
+  },
 ]);
 
 export default router;
