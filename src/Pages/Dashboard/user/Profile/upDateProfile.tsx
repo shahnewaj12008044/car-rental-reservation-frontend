@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -17,7 +16,7 @@ import { useAppSelector } from "@/redux/hook";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { FaEdit } from "react-icons/fa";
-
+import toast from "react-hot-toast";
 
 
 export function UpadateProfile() {
@@ -33,7 +32,8 @@ export function UpadateProfile() {
             userData:data,
         }
         const res = await updateProfile(userDataPayload)
-        console.log(res)
+        // console.log(res)
+        toast.success(res.data.message)
        }catch(err){
         console.log(err)
        }
