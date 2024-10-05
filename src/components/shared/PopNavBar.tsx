@@ -1,11 +1,13 @@
-import { useAppDispatch } from "@/redux/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { NavLink } from "react-router-dom";
 import { Button } from "../ui/button";
-import { logout } from "@/redux/features/Auth/AuthSlice";
+import { logout, selectCurrentUser } from "@/redux/features/Auth/AuthSlice";
 
 const PopNavBar = ({ isPopNavbar }: { isPopNavbar: boolean }) => {
+  const user = useAppSelector(selectCurrentUser);
+  // console.log(user)
   const userNavs = [
-    { name: "Dashboard", path: "/dashboard" },
+    { name: "Dashboard", path: `/${user?.role}/dashboard` },
     { name: "Booking Management", path: "/booking-management" },
     { name: "Payment Management", path: "/payment-management" },
   ];

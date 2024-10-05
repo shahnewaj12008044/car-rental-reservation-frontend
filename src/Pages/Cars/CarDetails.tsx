@@ -145,11 +145,8 @@ const CarDetails = () => {
               Cancellation Policy:
             </h3>
             <p className="text-gray-600 p-4 bg-gray-100 w-full rounded-xl">
-              You can cancel your booking at no cost up to 24 hours before the
-              scheduled pick-up time. Cancellations made within 24 hours of the
-              pick-up time may incur a fee. No refunds will be given for
-              no-shows or early returns. Changes to your booking may affect the
-              cancellation terms.
+              Your Booking will be pending for now. Our admin will approve this.
+              After confirming the booking you can not update or cancel the booking.
             </p>
           </div>
 

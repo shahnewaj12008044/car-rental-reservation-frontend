@@ -91,6 +91,9 @@
 .magnifier:hover {
   transform: scale(1.5); /* Adjusted scale for a more subtle zoom */
 }
+.tag-line{
+ @apply text-center text-xl font-bold text-[#020C29] italic underline
+}
 
 @layer utilities {
   .custom-transition {
