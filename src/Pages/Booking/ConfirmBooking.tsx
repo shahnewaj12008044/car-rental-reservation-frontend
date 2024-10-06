@@ -45,7 +45,7 @@ const ConfirmBooking = () => {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen px-4 py-8">
+    <div className="flex justify-center items-center text-color min-h-screen px-4 py-8">
       <div className="max-w-md w-full bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4">Confirm Your Booking</h2>
         <div className="space-y-2">

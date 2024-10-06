@@ -18,6 +18,8 @@ import Success from "@/Pages/success/Success";
 import BookingManagement from "@/Pages/Dashboard/user/bookingmanagement/BookingManagement";
 import ManageBooking from "@/Pages/Dashboard/admin/managebooking/ManageBooking";
 import ManageCar from "@/Pages/Dashboard/admin/managecar/ManageCar";
+import ManageReturnCar from "@/Pages/Dashboard/admin/managereturncar/ManageReturnCar";
+import UserManagement from "@/Pages/Dashboard/admin/usermanagement/UserManagement";
 
 const router = createBrowserRouter([
   {
@@ -124,6 +126,14 @@ const router = createBrowserRouter([
       {
         path: "manage-cars",
         element: <ManageCar />,
+      },
+      {
+        path: "return-cars",
+        element: <ManageReturnCar />,
+      },
+      {
+        path: "manage-users",
+        element: <UserManagement />
       },
     ],
   },

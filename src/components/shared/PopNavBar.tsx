@@ -19,8 +19,8 @@ const PopNavBar = ({ isPopNavbar }: { isPopNavbar: boolean }) => {
     { name: "Dashboard", path: `/${user?.role}/dashboard` },
     { name: "Booking Management", path: "/admin/manage-bookings" },
     { name: "Car Management", path: "/admin/manage-cars" },
-    { name: "User Management", path: "/admin/user-management" },
-    { name: "Return cars", path: "/admin/return-car" },
+    { name: "User Management", path: "/admin/manage-users" },
+    { name: "Return cars", path: "/admin/return-cars" },
   ]
   switch (user?.role) {
     case 'admin':

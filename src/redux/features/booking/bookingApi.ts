@@ -48,6 +48,7 @@ const bookingApi = baseApi.injectEndpoints({
       }),
       providesTags: ["booking"],
     }),
+    
   }),
 });
 

@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -7,7 +8,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
+import { GrLinkNext } from "react-icons/gr";
+import { GrLinkPrevious } from "react-icons/gr";
 import {
     ColumnDef,
     flexRender,
@@ -15,8 +17,7 @@ import {
     useReactTable,
     getPaginationRowModel,
   } from "@tanstack/react-table";
-  import { GrLinkNext } from "react-icons/gr";
-  import { GrLinkPrevious } from "react-icons/gr";
+
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -24,7 +25,7 @@ interface DataTableProps<TData, TValue> {
 }
 export function DataTable<TData, TValue>({
   columns = [],
-  data = [],
+  data = []  
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -86,7 +87,7 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanPreviousPage()}
           className="shad-gray-btn"
         >
-       <GrLinkPrevious/>
+          <GrLinkPrevious/>
         </Button>
         <Button
           variant="outline"
@@ -95,7 +96,7 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanNextPage()}
           className="shad-gray-btn"
         >
-         <GrLinkNext/>
+       <GrLinkNext/>
         </Button>
       </div>
     </div>

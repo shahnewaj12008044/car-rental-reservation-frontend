@@ -60,7 +60,7 @@ const BookingForm = () => {
   return (
     <>
       <div className="">
-        <h1 className="text-center text-[#020C29] underline italic font-bold text-xl mt-6">
+        <h1 className="text-center text-[#020C29] dark:text-white underline italic font-bold text-xl mt-6">
           Booking <span className="text-orange-500"> Form</span>
         </h1>
       </div>

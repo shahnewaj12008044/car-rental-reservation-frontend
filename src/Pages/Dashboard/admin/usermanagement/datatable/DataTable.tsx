@@ -86,7 +86,7 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanPreviousPage()}
           className="shad-gray-btn"
         >
-       <GrLinkPrevious/>
+          <GrLinkPrevious/>
         </Button>
         <Button
           variant="outline"
@@ -95,7 +95,7 @@ export function DataTable<TData, TValue>({
           disabled={!table.getCanNextPage()}
           className="shad-gray-btn"
         >
-         <GrLinkNext/>
+        <GrLinkNext/>
         </Button>
       </div>
     </div>
