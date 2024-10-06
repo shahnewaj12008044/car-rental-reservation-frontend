@@ -80,7 +80,6 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
     const carData = {
       name: data.name,
-      model: data.model,
       features,
       pricePerHour: Number(data.pricePerHour),
       image: imageData.data.url,
@@ -200,17 +199,6 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
                   </SelectContent>
                 </Select>
               )}
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="model" className="text-right">
-              Model
-            </Label>
-            <Input
-              {...register("model")}
-              id="model"
-              defaultValue={item.model}
-              className="col-span-3"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">

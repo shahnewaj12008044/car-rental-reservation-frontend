@@ -20,32 +20,33 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useCreateCarMutation } from "@/redux/features/Car/carApi";
-import axios from "axios";
+
 import { useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 export interface ICarData {
-  _id: string;
-  name: string;
-  model: string;
-  features: string[];
-  pricePerHour: number;
-  image: string;
-  isElectric: boolean;
-  location: string;
-  description: string;
-  color: string;
-  carType: string;
+  _id:string;
+  name: string
+  image: string
+  location: string
+  description: string
+  color: string
+  isElectric: boolean
+  status: string
+  features: string[]
+  pricePerHour: number
+  isDeleted: boolean
+  carType: string
 }
 
 const AddCar = () => {
   const [open, setOpen] = useState(false);
-  const { register, handleSubmit, reset, control, setValue } = useForm<ICarData>();
+  const { register, handleSubmit, reset, control } = useForm<ICarData>();
   const [createCar] = useCreateCarMutation();
 
   const [features, setFeatures] = useState<string[]>([""]);
-  const [, setUploading] = useState(false);
+
 
   const handleFeatureChange = (index: number, value: string) => {
     const newFeatures = [...features];
@@ -61,53 +62,24 @@ const AddCar = () => {
     const newFeatures = features.filter((_, i) => i !== index);
     setFeatures(newFeatures);
   };
+  const image_hosting_key =  "89453bbd17c420861c075bebff4de5e5";
+  const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-  const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setUploading(true);
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append(
-        "upload_preset",
-        import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET,
-      );
-      formData.append("cloud_name", import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
-
-      try {
-        const response = await axios.post(
-          `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/image/upload`,
-          formData,
-          {
-            headers: { "Content-Type": "multipart/form-data" },
-            onUploadProgress: (progressEvent) => {
-              const percentCompleted = Math.round(
-                (progressEvent.loaded * 100) / (progressEvent.total || 1)
-              );
-              console.log(`Upload progress: ${percentCompleted}%`);
-            },
-          }
-        );
-        const imageUrl = response.data.secure_url;
-        setValue("image", imageUrl);
-        toast.success("Image uploaded successfully!");
-      } catch (error) {
-        console.error("Image upload failed:", error);
-        toast.error("Image upload failed");
-      } finally {
-        setUploading(false);
-      }
-    }
-  };
 
   const onSubmit: SubmitHandler<ICarData> = async (data) => {
-    
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+  
+    const res = await fetch(image_hosting_api, {
+      method: "POST",
+      body: formData,
+    });
+    const imageData = await res.json();
     const carData = {
       name: data.name,
-      model: data.model,
       features,
       pricePerHour: Number(data.pricePerHour),
-      image: data.image,
+      image: imageData.data.url,
       isElectric: Boolean(data.isElectric),
       location: data.location,
       description: data.description,
@@ -171,28 +143,13 @@ const AddCar = () => {
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="image" className="text-right">Image</Label>
-            <Controller
-              name="image"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => {
-                    handleImageUpload(e);
-                    field.onChange(e.target.files?.[0]);
-                  }}
-                  className="col-span-3"
-                />
-              )}
+            <Input
+              {...register("image")}
+              id="image"
+              type="file"
+              accept="image/*"
+              className="col-span-3 text-none"
             />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="model" className="text-right">
-              Model
-            </Label>
-            <Input {...register("model")} id="model" className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="features" className="text-right">

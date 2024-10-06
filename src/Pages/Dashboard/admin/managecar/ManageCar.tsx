@@ -72,7 +72,6 @@ const ManageCar = () => {
             <TableRow>
               <TableHead className="w-[100px]">Image</TableHead>
               <TableHead>Name</TableHead>
-              <TableHead>Model</TableHead>
               <TableHead>Features</TableHead>
               <TableHead>Price Per Hour</TableHead>
               <TableHead className="text-right">Actions</TableHead>
@@ -89,7 +88,6 @@ const ManageCar = () => {
                   />
                 </TableCell>
                 <TableCell>{item.name}</TableCell>
-                <TableCell>{item.model}</TableCell>
                 <TableCell>
                   <ul className="list-disc pl-4">
                     {item.features.map((feature, index) => (
