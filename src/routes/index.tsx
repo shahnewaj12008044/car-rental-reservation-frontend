@@ -17,7 +17,7 @@ import ConfirmBooking from "@/Pages/Booking/ConfirmBooking";
 import Success from "@/Pages/success/Success";
 import BookingManagement from "@/Pages/Dashboard/user/bookingmanagement/BookingManagement";
 import ManageBooking from "@/Pages/Dashboard/admin/managebooking/ManageBooking";
-
+import ManageCar from "@/Pages/Dashboard/admin/managecar/ManageCar";
 
 const router = createBrowserRouter([
   {
@@ -52,18 +52,26 @@ const router = createBrowserRouter([
       {
         path: "/booking-form/:id",
         element: (
-          <ProtectedRoute roles={[ "user"]}>
+          <ProtectedRoute roles={["user"]}>
             <BookingForm />
           </ProtectedRoute>
         ),
       },
       {
         path: "/confirm-booking",
-        element: <ProtectedRoute roles={['user']}><ConfirmBooking /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute roles={["user"]}>
+            <ConfirmBooking />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/success",
-        element: <ProtectedRoute roles={['user','admin']}><Success  /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute roles={["user", "admin"]}>
+            <Success />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/about",
@@ -101,19 +109,23 @@ const router = createBrowserRouter([
     path: "/admin",
     element: (
       <ProtectedRoute roles={["admin"]}>
-       <App></App>
+        <App></App>
       </ProtectedRoute>
     ),
-    children:[
+    children: [
       {
-        path:'dashboard',
-        element:<AdminDashboard/>
+        path: "dashboard",
+        element: <AdminDashboard />,
       },
       {
         path: "manage-bookings",
         element: <ManageBooking />,
       },
-    ]
+      {
+        path: "manage-cars",
+        element: <ManageCar />,
+      },
+    ],
   },
 ]);
 
