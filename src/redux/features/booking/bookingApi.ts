@@ -43,7 +43,7 @@ const bookingApi = baseApi.injectEndpoints({
     }),
     getAdminDashboardCount: builder.query({
       query: () => ({
-        url: "/booking/dashboard",
+        url: "/bookings/dashboard",
         method: "GET",
       }),
       providesTags: ["booking"],

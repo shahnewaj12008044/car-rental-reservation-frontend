@@ -3,7 +3,7 @@
 const CompanyHistory = () => {
   return (
    <div className="my-2">
-    <h1 className="text-2xl text-[#020C29] text-center font-semibold italic underline">Our <span className="text-orange-500">History</span></h1>
+    <h1 className="text-2xl dark:text-white text-[#020C29] text-center font-semibold italic underline">Our <span className="text-orange-500">History</span></h1>
      <div className="flex flex-col md:flex-row justify-around items-center p-6 space-y-4 md:space-y-0 md:space-x-4">
     <div className="bg-white p-6 rounded-lg shadow-lg w-full md:w-1/3">
       <h2 className="text-xl text-[#020C29] text-center italic underline font-bold mb-2">Founded in 2019</h2>

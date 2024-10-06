@@ -39,7 +39,7 @@ const ValuesAndCommitment = () => {
       
     return (
         <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-xl font-bold text-[#020C29] underline italic mb-8">
+        <h2 className="text-xl font-bold text-[#020C29] dark:text-white underline italic mb-8">
           Values & <span className='text-orange-500'>Commitment</span>
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

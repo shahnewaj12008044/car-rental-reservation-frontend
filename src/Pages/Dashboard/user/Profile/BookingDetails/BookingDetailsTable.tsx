@@ -19,7 +19,7 @@ const BookingDetailsTable = () => {
   };
 
   return (
-    <div className="w-full bg-white mx-auto rounded-md my-4 px-6 py-4">
+    <div className="w-full bg-white text-color mx-auto rounded-md my-4 px-6 py-4">
       <h1 className="text-xl font-bold text-[#020C29] italic underline mb-2 border-l-4 pl-2 bg-orange-600 bg-opacity-10 py-2 border-l-orange-500">
         Booking <span className="text-orange-500 ">Details</span>
       </h1>

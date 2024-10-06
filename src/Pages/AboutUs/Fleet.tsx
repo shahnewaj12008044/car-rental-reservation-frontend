@@ -13,7 +13,7 @@ const Fleet = () => {
   return (
  
 <div className="flex flex-col my-6">
-    <h1 className="text-xl font-bold italic underline text-[#020C29] text-center my-5">Our <span className="text-orange-500">Fleet</span></h1>
+    <h1 className="text-xl font-bold italic underline text-[#020C29] dark:text-white text-center my-5">Our <span className="text-orange-500">Fleet</span></h1>
 <Carousel
     opts={{
       align: "center",

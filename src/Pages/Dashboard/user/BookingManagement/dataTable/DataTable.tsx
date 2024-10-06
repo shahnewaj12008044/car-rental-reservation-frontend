@@ -33,7 +33,7 @@ export function DataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
-
+// console.log(columns)
   // Ensure `rows` is an array
   const rows = table.getRowModel()?.rows || [];
   return (

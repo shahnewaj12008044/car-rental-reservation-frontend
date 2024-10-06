@@ -61,7 +61,7 @@ export const columns: ColumnDef< any>[] = [
           // Display total cost or fallback message
           return (
             <p className="text-14-medium">
-              
+              ---
             </p>
           );
         },
@@ -101,7 +101,7 @@ export const columns: ColumnDef< any>[] = [
       
           // Display total cost or fallback message
           return (
-            <p className="text-14-medium"></p>
+            <p className="text-14-medium">---</p>
           );
         },
       },

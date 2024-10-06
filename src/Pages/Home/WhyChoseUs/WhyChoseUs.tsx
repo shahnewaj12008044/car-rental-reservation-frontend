@@ -25,7 +25,7 @@ const WhyChoseUs = () => {
 
   return (
    <div className="py-4 ">
-    <h1 className="text-center  text-2xl font-bold text-[#020C29] underline my-4">Why Choose <span className="text-orange-600">Us?</span></h1>
+    <h1 className="text-center  text-2xl font-bold text-[#020C29] dark:text-white underline my-4">Why Choose <span className="text-orange-600">Us?</span></h1>
      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 ">
       {whyChooseUs?.map((item,index) => (
         <div key={index} className="bg-gradient rounded-lg shadow-lg shadow-orange-900">

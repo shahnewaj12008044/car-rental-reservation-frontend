@@ -31,13 +31,13 @@ const ContactUs = () => {
     },
   ];
   return (
-    <div className="my-4">
+    <div className="my-4 py-4">
      
-        <h1 className="text-center font-bold text-xl pt-16 flex justify-center items-center mx-auto tracking-wide text-[#020C29] underline italic my-4">
+        <h1 className="text-center font-bold text-xl pt-16 flex justify-center items-center mx-auto tracking-wide text-[#020C29] dark:text-white underline italic my-4">
           Contact <span className="text-orange-600 ">Us</span> 
         </h1>
     
-      <section className="py-2">
+      <section className="py-4 ">
         <div className="mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mx-auto">
             {features.map((feature, index) => (
@@ -64,7 +64,7 @@ const ContactUs = () => {
 
         {/* Form Section */}
         <div className="w-full md:w-1/2 md:ml-6">
-          <h2 className="text-2xl font-bold mb-4">
+          <h2 className="text-2xl font-bold mb-4 text-[#020C29]">
             Get in <span className="text-orange-500">touch!</span>{" "}
           </h2>
           <form className="space-y-4">

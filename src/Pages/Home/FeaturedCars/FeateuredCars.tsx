@@ -23,7 +23,7 @@ const FeateuredCars = () => {
 
   return (
     <div className="flex flex-col py-4">
-      <h1 className="text-color text-xl font-bold text-center my-4 underline">
+      <h1 className="text-color dark:text-white italic text-xl font-bold text-center my-4 underline">
         Explore the best <span className="text-orange-500">Driving Machine</span>
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

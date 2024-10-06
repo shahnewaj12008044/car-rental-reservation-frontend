@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const BookingCard = ({ car }: { car: TCar }) => {
   return (
-    <div className="lg:max-w-80 h-full rounded-lg border border-gray-200 p-4 flex flex-col gap-4">
+    <div className="lg:max-w-80 h-full rounded-lg border border-gray-200 p-4  flex flex-col gap-4">
       <div className="image-fluid">
         <img
           className="rounded-md magnifier size-80 "
@@ -15,7 +15,7 @@ const BookingCard = ({ car }: { car: TCar }) => {
       </div>
       <div className="flex flex-col gap-5">
         <div className="space-y-1">
-          <h3 className="text-xl font-semibold text-[#020C29] ">{car?.name}</h3>
+          <h3 className="text-xl font-semibold text-[#020C29] dark:text-white ">{car?.name}</h3>
           <p>{car?.description.slice(0, 60) || "Description not available"}</p>
           <p className="text-[#020C29] dark:text-white">
             Location: {car?.location}

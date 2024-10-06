@@ -15,7 +15,7 @@ const CarCard = ({ car }: { car: TCar }) => {
       </div>
       <div className="flex flex-col gap-5">
         <div className="space-y-1">
-          <h3 className="text-xl font-semibold text-[#020C29] ">{car?.name}</h3>
+          <h3 className="text-xl font-semibold text-[#020C29] dark:text-white">{car?.name}</h3>
           <p>{car?.description.slice(0, 60) || "Description not available"}</p>
           <p className="text-[#020C29] dark:text-white">
             Location: {car?.location}

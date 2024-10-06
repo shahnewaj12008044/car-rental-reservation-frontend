@@ -36,7 +36,7 @@ const Team = () => {
 
   return (
     <div>
-      <h1 className="text-xl font-bold italic underline text-[#020C29] text-center mb-2">
+      <h1 className="text-xl font-bold italic underline text-[#020C29] dark:text-white text-center mb-2">
         Our <span className="text-orange-500">Team</span>
       </h1>
       <div className="flex flex-col md:flex-row justify-between ">

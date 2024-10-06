@@ -44,7 +44,7 @@ const Car = () => {
   return (
     <section className="my-4">
       <div>
-        <h1 className="text-center text-2xl italic underline font-bold text-[#020C29]">
+        <h1 className="text-center text-2xl italic underline font-bold text-[#020C29] dark:text-white">
           Explore the best{" "}
           <span className=" rounded-md text-orange-500">cars</span> in town
         </h1>

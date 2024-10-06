@@ -2,15 +2,36 @@ import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { NavLink } from "react-router-dom";
 import { Button } from "../ui/button";
 import { logout, selectCurrentUser } from "@/redux/features/Auth/AuthSlice";
+type TNavoptions = {
+  name:string;
+  path:string;
+}
 
 const PopNavBar = ({ isPopNavbar }: { isPopNavbar: boolean }) => {
   const user = useAppSelector(selectCurrentUser);
-  // console.log(user)
+  let navOptions: TNavoptions[] = [];
   const userNavs = [
     { name: "Dashboard", path: `/${user?.role}/dashboard` },
     { name: "Booking Management", path: "/user/booking-management" },
     { name: "Payment Management", path: "/user/payment-management" },
   ];
+  const adminNavs = [
+    { name: "Dashboard", path: `/${user?.role}/dashboard` },
+    { name: "Booking Management", path: "/admin/booking-management" },
+    { name: "Car Management", path: "/admin/car-management" },
+    { name: "User Management", path: "/admin/user-management" },
+    { name: "Return cars", path: "/admin/return-car" },
+  ]
+  switch (user?.role) {
+    case 'admin':
+      navOptions = [...adminNavs]
+      break;
+    case 'user':
+      navOptions = [...userNavs]
+      break;
+    default:
+      break;
+  }
   const dispatch = useAppDispatch()
   // console.log(user)
   const handleLogOut = () =>{
@@ -25,9 +46,9 @@ const PopNavBar = ({ isPopNavbar }: { isPopNavbar: boolean }) => {
       style={{ transitionDelay: isPopNavbar ? "0.2s" : "0s" }}
     >
       <div className="flex flex-col gap-2 ">
-        {userNavs.map((nav, index) => (
+        {navOptions?.map((nav, index) => (
         
-             <NavLink key={index}  to={nav.path} className="text-lg hover:text-orange-600 pb-2 border-b-2 border-slate-400 last:border-b-0 last:pb-0">
+             <NavLink key={index}  to={nav.path} className="text-lg text-color hover:text-orange-600 pb-2 border-b-2 border-slate-400 last:border-b-0 last:pb-0">
             {nav.name}
           </NavLink>
 
