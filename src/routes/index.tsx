@@ -15,6 +15,8 @@ import UserDashboard from "@/Pages/Dashboard/user/UserDashboard";
 import BookingForm from "@/Pages/Booking/BookingForm";
 import ConfirmBooking from "@/Pages/Booking/ConfirmBooking";
 import Success from "@/Pages/success/Success";
+import BookingManagement from "@/Pages/Dashboard/user/bookingmanagement/BookingManagement";
+
 
 const router = createBrowserRouter([
   {
@@ -87,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <UserDashboard />,
+      },
+      {
+        path: "booking-management",
+        element: <BookingManagement />,
       },
     ],
   },

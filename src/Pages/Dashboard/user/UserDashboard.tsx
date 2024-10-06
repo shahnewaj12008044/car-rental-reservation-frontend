@@ -1,4 +1,4 @@
-import BookingManageMent from "./BookingManagement/BookingManageMent";
+import BookingDetailsTable from "./Profile/BookingDetails/BookingDetailsTable";
 import Profile from "./Profile/Profile";
 
 const UserDashboard = () => {
@@ -8,7 +8,7 @@ const UserDashboard = () => {
         Welcome to <span className="text-orange-500">Car rental</span>
       </h1>
       <Profile></Profile>
-      <BookingManageMent></BookingManageMent>
+      <BookingDetailsTable/>
     </div>
   );
 };

@@ -8,8 +8,8 @@ const PopNavBar = ({ isPopNavbar }: { isPopNavbar: boolean }) => {
   // console.log(user)
   const userNavs = [
     { name: "Dashboard", path: `/${user?.role}/dashboard` },
-    { name: "Booking Management", path: "/booking-management" },
-    { name: "Payment Management", path: "/payment-management" },
+    { name: "Booking Management", path: "/user/booking-management" },
+    { name: "Payment Management", path: "/user/payment-management" },
   ];
   const dispatch = useAppDispatch()
   // console.log(user)
