@@ -39,7 +39,7 @@ const chartData = [
 const chartConfig = {
   revenue: {
     label: "Revenue",
-    color: "hsl(var(--chart-3))",
+    color: "hsl(var(--chart-5))",
   },
 
 } satisfies ChartConfig
@@ -76,7 +76,7 @@ export function Chart() {
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          Showing total revenues for the years
         </div>
       </CardFooter>
     </Card>

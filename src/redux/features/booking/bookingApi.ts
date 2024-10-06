@@ -19,10 +19,10 @@ const bookingApi = baseApi.injectEndpoints({
       providesTags: ["booking"],
     }),
     updateBookings: builder.mutation({
-      query: ({ bookingId, ...data }) => ({
-        url: `/bookings/${bookingId}`,
+      query: (payload) => ({
+        url: `/bookings/${payload.id}`,
         method: "PUT",
-        body: data,
+        body: payload.data,
       }),
       invalidatesTags: ["booking"],
     }),

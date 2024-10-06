@@ -30,6 +30,7 @@ const BookingDetailsTable = () => {
               <th className="py-2 px-4 bg-gray-200">Date</th>
               <th className="py-2 px-4 bg-gray-200">Car</th>
               <th className="py-2 px-4 bg-gray-200">Payment</th>
+              <th className="py-2 px-4 bg-gray-200">Booking info</th>
               <th className="py-2 px-4 bg-gray-200">Action</th>
             </tr>
           </thead>
@@ -49,6 +50,17 @@ const BookingDetailsTable = () => {
                     } px-4 py-1`}
                   >
                     {booking.payment}
+                  </Badge>
+                </td>
+                <td className="border px-4 py-2 text-center">
+                  <Badge
+                    className={`${
+                      booking.isBooked === "pending" || booking.isBooked === "cancelled"
+                        ? "bg-red-700"
+                        : "bg-green-600"
+                    } px-4 py-1`}
+                  >
+                    {booking.isBooked}
                   </Badge>
                 </td>
                 <td className="border px-4 py-2 text-center">

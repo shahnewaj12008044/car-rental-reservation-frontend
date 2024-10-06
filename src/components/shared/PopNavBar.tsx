@@ -17,7 +17,7 @@ const PopNavBar = ({ isPopNavbar }: { isPopNavbar: boolean }) => {
   ];
   const adminNavs = [
     { name: "Dashboard", path: `/${user?.role}/dashboard` },
-    { name: "Booking Management", path: "/admin/booking-management" },
+    { name: "Booking Management", path: "/admin/manage-bookings" },
     { name: "Car Management", path: "/admin/car-management" },
     { name: "User Management", path: "/admin/user-management" },
     { name: "Return cars", path: "/admin/return-car" },
@@ -61,38 +61,3 @@ const PopNavBar = ({ isPopNavbar }: { isPopNavbar: boolean }) => {
 
 export default PopNavBar;
 
-/*
-import { NavLink } from "react-router-dom";
-
-const PopNavBar = ({ isPopNavbar }: { isPopNavbar: boolean }) => {
-  const userNavs = [
-    { name: "Dashboard", path: "/dashboard" },
-    { name: "Booking Management", path: "/booking-management" },
-    { name: "Payment Management", path: "/payment-management" },
-  ];
-
-  return (
-    <div
-      className={`bg-white transform transition-all ease-in-out duration-500 px-5 py-8 rounded-md absolute top-0 right-2 shadow-lg ${
-        isPopNavbar ? "translate-y-20 opacity-100" : "-translate-y-full opacity-0"
-      }`}
-      style={{ transitionDelay: isPopNavbar ? "0.2s" : "0s" }}
-    >
-      <div className="flex flex-col gap-5">
-        {userNavs.map((nav, index) => (
-          <NavLink
-            key={index}
-            to={nav.path}
-            className="text-lg hover:text-blue-600 pb-2 border-b border-gray-300 last:border-b-0"
-          >
-            {nav.name}
-          </NavLink>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default PopNavBar;
-
- */
