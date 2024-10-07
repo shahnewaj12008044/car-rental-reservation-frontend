@@ -20,6 +20,8 @@ import ManageBooking from "@/Pages/Dashboard/admin/managebooking/ManageBooking";
 import ManageCar from "@/Pages/Dashboard/admin/managecar/ManageCar";
 import ManageReturnCar from "@/Pages/Dashboard/admin/managereturncar/ManageReturnCar";
 import UserManagement from "@/Pages/Dashboard/admin/usermanagement/UserManagement";
+import PaymentManagement from "@/Pages/Dashboard/user/paymentmanagement/PaymentManagement";
+
 
 const router = createBrowserRouter([
   {
@@ -105,6 +107,10 @@ const router = createBrowserRouter([
         path: "booking-management",
         element: <BookingManagement />,
       },
+      {
+        path: "manage-payment",
+        element: <PaymentManagement />
+      }
     ],
   },
   {
@@ -135,6 +141,7 @@ const router = createBrowserRouter([
         path: "manage-users",
         element: <UserManagement />
       },
+     
     ],
   },
 ]);

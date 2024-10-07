@@ -55,7 +55,7 @@ export const columns: ColumnDef< any>[] = [
       
           // Check if the booking is unconfirmed
           if (isBooked === "approved") {
-            return <p className="text-14-medium">{totalCost}</p>;
+            return <p className="text-14-medium">{parseInt(totalCost)}</p>;
           }
       
           // Display total cost or fallback message
