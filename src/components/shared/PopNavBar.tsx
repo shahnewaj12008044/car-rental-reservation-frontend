@@ -9,6 +9,7 @@ type TNavoptions = {
 
 const PopNavBar = ({ isPopNavbar }: { isPopNavbar: boolean }) => {
   const user = useAppSelector(selectCurrentUser);
+  console.log(user)
   let navOptions: TNavoptions[] = [];
   const userNavs = [
     { name: "Dashboard", path: `/${user?.role}/dashboard` },

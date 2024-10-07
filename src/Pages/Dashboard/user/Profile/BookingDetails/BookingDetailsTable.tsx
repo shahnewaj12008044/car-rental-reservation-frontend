@@ -40,7 +40,7 @@ const BookingDetailsTable = () => {
                 <td className="border px-4 py-2">
                   {booking.date.split("T")[0]}
                 </td>
-                <td className="border px-4 py-2">{booking.car.name}</td>
+                <td className="border px-4 py-2">{booking?.car?.name}</td>
                 <td className="border px-4 py-2 text-center">
                   <Badge
                     className={`${
