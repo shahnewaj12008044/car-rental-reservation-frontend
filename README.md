@@ -53,6 +53,7 @@ admin password: 123456
 1. Clone the repository
 
 ```
+https://github.com/shahnewaj12008044/car-rental-reservation-frontend.git
 ```
 
 2. Project open
