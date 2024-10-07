@@ -55,7 +55,10 @@ admin password: 123456
 ```
 https://github.com/shahnewaj12008044/car-rental-reservation-frontend.git
 ```
-
+1.2 Clone backend repository
+```
+https://github.com/shahnewaj12008044/car-rental-resevation-backend.git
+```
 2. Project open
 
 ```
