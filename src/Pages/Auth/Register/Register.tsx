@@ -71,7 +71,7 @@ const Register = () => {
       navigate("/login");
     } else {
       // toast.error(error?.data?.message)
-      toast.error(res?.error?.data?.message);
+      toast.error("failed to login");
     }
   };
 
