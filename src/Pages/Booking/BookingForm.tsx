@@ -52,7 +52,7 @@ const BookingForm = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
-    const bookingDetails = { ...data, carId };
+    const bookingDetails = { ...data };
     // Handle form submission logic here, such as sending data to an API
     navigate("/confirm-booking", { state: { bookingDetails } });
   };

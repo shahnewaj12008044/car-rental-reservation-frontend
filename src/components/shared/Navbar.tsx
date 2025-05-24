@@ -42,8 +42,8 @@ const Navbar = () => {
       src={logo}
       alt="logo"
     />
-    <h2 className="font-bold text-lg md:text-xl lg:text-2xl text-color ">
-      Car <span className="text-orange-500">Rental</span>
+    <h2 className="font-bold text-lg md:text-xl lg:text-2xl  ">
+      Car <span className="text-orange-500 dark:text-white">Rental</span>
     </h2>
   </Link>
     <div className="ml-3"> <ModeToggle></ModeToggle></div>
